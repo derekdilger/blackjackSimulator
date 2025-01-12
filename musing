@@ -1,0 +1,76 @@
+Before simulating the mainline, i should be able to manually play the mainline...
+JUST THE MAINLINE:
+1. The players place their bets first.
+2. The dealer deals two cards to the players and himself; one of his own is face down
+3. If the face-up card is a face or ace, the dealer checks if he has a blackjack
+4. If he has a blackjack, all bets are collected before further action (hits/bets), except if a player also has a blackjack.
+5. If he doesn't have a blackjack, the player must make a decision. the player's decision options depend on what she has.
+6. while (playerDeciding == true) { //players options depend exhaustively on: (whether player has 2 cards, or more than 2), (whether player's cards are a pair), (whether player's cards number >2 && total <= 11), (whether player has only one card, such as after a split)
+The above functions are needed to determine the player's choices: isVirginHand(), isPair(), forcedToHit(), isLoneAfterSplit <-- to really mirror reality, after splitting each lone card will get their 2nd card one at a time
+forcedToHit() //hand must have 3 >= cards && total must <=11
+isVirginHand() boolean belonging to hand class; all virgin hands have exactly 2 cards; splitting creates two virgin hands; independent of pair or not
+isPair() //function that evaluates hands; hand must have == 2 cards, cards ranks being equal, all pair hands are also virgin hands, mutex with forcedToHit(), spawns two lone cards
+isBusted() //boolean belonging to Hand class; determines if hard hand value > 21
+hasDoubledDownAlready //boolean
+
+Hand class:
+    variables: isVirgin, isBusted, hasDoubled, //variables whos state depends on the path to 
+    methods: isPair(), forcedToHit(), 
+
+Options:
+
+while (!isBusted() && !forcedToHit() )
+{
+    print: "H to hit, S to stay, P to split, R to surrender, D to double down"
+    input = obtainPlayerInput() //sanitize input
+    if 
+}
+
+Now the goal is to simulate the mainline...
+First, i need to find, how many starting positions there are.
+For each position, a decision must be made in advance as to what the player will choose in the moment.
+Goal (1) is to find the EV for each play in each position. (and of course choose the highest of all choice's EVs)
+
+vocab:
+state: board state, whole or part
+literal state: rank and suit matters for counting the number of possible literal states; the unwieldiness of literal states is why simulation is easier.
+effective state: rank matters, but suit does not, for counting the number of effective states. ALSO  
+chart state: 2♠️ 4♠️ 2♣️ 5♣️ A♣️  has a chart state of 14. There are many rank/suit ways to have a chart state of 14.
+starting state: if the player and dealer each have exactly two cards, no decisions have been made, it's a starting state
+
+the set of all starting states is a subset of the set of all chart states.
+For making a decision, I will want a function that maps all chart states to a starting state.
+For making a decision, a 
+
+some positions, while not a starting position, can be effectively mapped to a starting position.
+By 'effectively' i mean, 2♠️ 4♠️ 2♥️  can be treated as effectively equivalent to 4♦️ 3♣️ 3♣️
+
+even though, technically, the first hand will have slightly different probabilities for the dealer and player, than the latter hand. and vice versa.
+They are effectively equivalent because of an as of yet unsaid assumption, that card counting is not occurring.
+
+so the (1.a) goal is to list all possible starting effective positions. this is much easier than listing all the starting math positions!
+from a code perspective, it's not hard to make a function that does this mapping.
+1.a can be broken into:
+    1.a.1 list all possible hard starting effective positions (that aren't pairs)
+    1.a.2 list all possible soft starting effective positions
+    1.a.3 list all possible starting pairs 
+
+1.a.1: 
+        if hand Y: isHard && !isAPair && sums to X
+        then, Y belongs to set 1.a.1
+        where X belongs to set { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 }
+        the set above is the listing of all effective hard non-pair positions
+        technically, the dealer card matters too, to fully describe a position.
+
+1.a.2: if hand Y: containsAnAce() && !isAPair && not isHard
+        then, Y belongs to set 1.a.2 which is { A2, A3, A4, A5, A6, A7, A8, A9, A10 }
+
+1.a.3: if hand Y: isPair()
+        then, Y belongs to set { AA, 22, 33, 44, 55, 66, 77, 88, 99, 1010 }
+
+For each effective position we want to keep track of:
+    the number of times it is encountered (both as a starting effective position and also non-starting, so two variables will be used to count)
+    the choice made at that spot (possibly, we make a random eligible choice, so as to invest 
+    the result of each choice
+
+

@@ -1,0 +1,121 @@
+Capitol Casino's version of blackjack: (ignoring some physical constraints)
+As if there were only one player. (think about why that's nearly equivalent to multiplayer for a sim; left to reader)
+
+LOOKUP SECTION:
+It's played with 6 normal decks combined, called a 'shoe'.
+The shoe is prepared by shuffling 6 decks, revealing the first card, and burning as many cards as the value of the revealed card. (ie burn 1-10 cards, avg = 6.61)
+Then a cut card is place after one deck, 
+
+The face cards are: Ten, Jack, Queen, King
+For each face card the value is ten.
+For Ace, the value is either 1 or 11. 
+The ace is 1 if interpreting it as 11 makes the total hand value > 21. (bust)
+The ace is 11 if interpreting it as 11 makes the total hand value <= 21.
+For cards 2-9 the value is the number.
+
+The hand rankings:
+The order of cards within a hand does not matter.
+An ace-face is a 'blackjack', the highest ranking hand.
+All other hands are ranked by the sum of the values of the cards. 
+The higher the summed number, the higher the ranking.
+21 is the second highest ranking.
+
+The player can make three bets:
+The mainline, RF, and BB.
+The mainline is mandatory, and must be divisible by 5.
+
+Payouts: 
+total_payout = original_wager + payout_odds * original_wager
+money_added_by_banker = payout_odds * original_wager
+
+Blackjack_payout_odds: 1.2
+
+plain_win_odds: 1 (player's hand ranks higher than dealer's)
+
+Red flex (RF) payout odds: (to qualify, no black cards can be present in the first num_dealer_reds cards of the dealer's hand)
+num_dealer_reds:    2   3   4   5   6   7
+payout_odds    :    2   3   8   50  100 250
+96.51 is return per 100 bet on the RF
+
+(
+at lotus casino:
+num_dealer_reds:    2   3   4   5   6   7
+payout_odds    :    2   3   8   50  100 250
+95.56 is returned per 100 bet on the RF
+)
+
+Buster Bet (BB) payout odds: (to qualify, dealer's hand must > 21, hard) 
+num_dealer_cards:   3   4   5   6   7   8
+payout_odds     :   2   2   4   12  100 250
+
+The goal of blackjack (mainline) is to beat the dealer's hand.
+Sideline bets depend entirely and solely on the dealer's hand, and are evaluated independently of the mainline.
+
+RF must be <= the mainline, with a maximum of $50.
+The max BB per seat is $50.
+At a table with 6 open seats, the effective max BB is $300 = $50 * 6, assuming each mainline is also bet.
+
+The player's possible choices during their turn (after betting):
+-hit (draw card) 
+-stay (auto-ends turn) (decline drawing a card) 
+-double down (add <= 1x their original mainline wager) (must end turn) (DD is an option on any two-card hand, regardless of the sequence to arrive at the two-card hand)
+-non-ace-split (cards must be of equal value; non-ace splits may happen up to 3 times for 4 total hands; player must wager an additional amount equal to their original mainline wager; each card becomes one part of the now two hands. Hands are automatically hit if their value <= 11 AND not a pair)
+-ace-split (auto-ends turn) (both cards must be aces; player wagers an additional amount == 1x their original wager; each ace becomes part of the now two hands;  
+-surrender (auto-ends turn)(player receives half their mainline back, other half goes to bank)
+
+Some verbs:
+isHard() = returns true if hand is hard
+evalNum() = returns highest interpretable value of hand
+compare(bankerHand, playerHand) = the verb at the end of the game, dealer hand vs player hand
+
+Some pre-code classes:
+card: DATA: has a design (J Q K etc.), has a suit ( ♥️  ♦️  ♠️  ♣️  ) (H D S C), METHODS: +getSuit() +getDesign()
+deck: DATA: has 52 card objects, 13designs * 4suits, //unnecessary for this sim
+shoe: DATA: has 312 cards, METHODS: +shuffle() 
+
+dealer: deals cards, makes shoe (ie shuffles 312 cards into array, burns ~1.5 decks but retaining access to burned cards), moves money between players and bankers, evaluates hands, 
+player: 
+
+Hit = H   Double Down = D    Stay = S    Surrender = R    Split = P
+GAME SEQUENCE:
+
+1. Before the hand is dealt, the player places all their bets. 
+
+2. The player is dealt two cards, face up, and the dealer is dealt two cards, one face-up, one face-down.
+
+3. //single check for blackjack 
+if (the dealer's face-up card is an ace or face) 
+    {
+        Then it's possible the dealer has a blackjack. 
+        Before any further action, the dealer checks if they have a blackjack (without revealing the face-down card). 
+        If the dealer has a blackjack, the hands are immediately eval'd/compared.
+        Proceed to payout.
+    } 
+
+4. //ensures player enters main loop with 11 < hand value <= 21
+while (playerHandInstance.isHard() == True && playerHandInstance.evalNum() <= 11) 
+    {
+       dealer automatically deals card to player
+    }
+
+5. //main player-turn loop 
+while (playerHandInstance.evaluates to < 21) 
+{
+    String p_input = dealerInstance.requestPlayerInput();
+    
+    if (curPlayerHand.isNonAcePair() && curPlayerHand.numSplitsSoFar <= 4) //player-hand loop, somehow must be a while loop
+        { 
+            The player may split, hit, double down, stay, surrender.
+        }
+        
+        elif (curPlayerHand.isAcePair() )
+        {
+            The player may ace-split, double down, hit, stay
+        }
+
+        elif (curPlayerHand.isBlackjack() ) 
+        {
+            The player may double down, stay
+        }
+
+}

@@ -1,0 +1,37 @@
+Why make blackjacksim?
+I'm interested in answering the questions below. Counting techniques like combinations and permutations cannot work for all questions.
+312! is 2 * 10^644, intractable, a number that would be used in the counting techniques approach.
+The exact approach would require handling annoying fractions like 23/24 * 22/23 * ... (such as when counting red twos in shoe), and these numbers would be part of a branching tree of possibilities of ways the dealer may bust.
+// the below line is false it turns out
+The expected value for the redflex is dependent on the buster bet. How can the EV for each together be calculated with pure math? The EV for each separately? I don't know.
+The finite deck affects dependence for other bets, too.
+Personally I find it easier and more fun to make the simulator as opposed to the (afaik) infeasible counting techniques approach.
+
+How close is the shoe to being random? Does the finiteness have an impact? What's the difference in EV and %-chance-of-payout for all bets when comparing an infinite shoe vs finite?
+
+While the game overall may be negative EV for the player, certain spots are not. What are those spots? And by what amount are they EV positive?
+
+What's the expected value of a $100 redflex bet?  //update: 96.51
+
+What's the % chance of a BB payout?
+
+What's the expected value of a $100 BB? (EV < $100)
+
+What's the % chance the player's hand beats the dealer's hand with perfect basic strategy?
+
+What's the expected value of a $100 mainline bet with perfect basic strategy?
+
+Does PES use the best possible basic strategy? Can an improvement be made?
+
+What's the % chance of hitting each of the following sideline outcomes?
+    Red flex (RF) payout schedule: 
+    num_dealer_reds:    2   3   4   5   6   7
+    payout_odds    :    2   3   8   50  100 250
+
+    Buster Bet (BB) payout schedule: 
+    num_dealer_cards:   3   4   5   6   7   8
+    payout_odds     :   2   2   4   12  100 250
+
+What's the difference in expected value when the player solely doubles down for 50% of their original mainline, vs 100%? 0% (never DD)?
+
+
