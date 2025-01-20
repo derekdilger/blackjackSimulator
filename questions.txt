@@ -8,14 +8,18 @@ The finite deck affects dependence for other bets, too.
 Personally I find it easier and more fun to make the simulator as opposed to the (afaik) infeasible counting techniques approach.
 
 How close is the shoe to being random? Does the finiteness have an impact? What's the difference in EV and %-chance-of-payout for all bets when comparing an infinite shoe vs finite?
+i dont care about this question anymore
 
 While the game overall may be negative EV for the player, certain spots are not. What are those spots? And by what amount are they EV positive?
 
-What's the expected value of a $100 redflex bet?  //update: 96.51
+What's the expected value of a $100 redflex bet?  
+$95.346
 
 What's the % chance of a BB payout?
+28.57%
 
 What's the expected value of a $100 BB? (EV < $100)
+$94.623
 
 What's the % chance the player's hand beats the dealer's hand with perfect basic strategy?
 
@@ -27,10 +31,31 @@ What's the % chance of hitting each of the following sideline outcomes?
     Red flex (RF) payout schedule: 
     num_dealer_reds:    2   3   4   5   6   7
     payout_odds    :    2   3   8   50  100 250
+sample from 2^31-1 hands aka 2.147 billion
+2cardRF:  16.704066%
+3cardRF:   6.862109%
+4cardRF:   1.228852%
+5cardRF:   0.117385%
+6cardRF:   0.006699%
+7cardRF:   0.000242%
+8cardRF:   0.000006%
+9cardRF:   0.000000%
 
+
+What's the % chance of hitting each of the following sideline outcomes?
     Buster Bet (BB) payout schedule: 
     num_dealer_cards:   3   4   5   6   7   8
     payout_odds     :   2   2   4   12  100 250
+sample from 2^31-1 hands aka 2.147 billion
+3cardBB:  17.281934%
+4cardBB:   8.948190%
+5cardBB:   2.053376%
+6cardBB:   0.265130%
+7cardBB:   0.021567%
+8cardBB:   0.001168%
+9cardBB:   0.000039%
+10cardBB:  0.000001%
+11cardBB:  0.000000%
 
 What's the difference in expected value when the player solely doubles down for 50% of their original mainline, vs 100%? 0% (never DD)?
 

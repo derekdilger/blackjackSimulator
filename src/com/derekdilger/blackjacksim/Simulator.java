@@ -12,10 +12,10 @@ public class Simulator
     public static void main(String[] args)
     {
         Scanner myScan = new Scanner(System.in);
-        System.out.println("enter a letter! p to play, s to simulate");
-        String userInput = myScan.nextLine();
-        System.out.println(userInput);
-        
+        //System.out.println("enter a letter! p to play, s to simulate");
+        //String userInput = myScan.nextLine();
+        //System.out.println(userInput);
+
         int numDecksInCapitolBlackjack = 6; 
         long num2cardBB = 0;
         long num3cardBB = 0;
@@ -74,7 +74,11 @@ public class Simulator
         myShoe.fisherYatesShuffle(myRand);
         Instant start = Instant.now();
         
-        long numHandsToSimulate = 200000000;
+        Round roundAtHand = new Round(myShoe);
+        roundAtHand.init();
+        roundAtHand.play();
+
+        long numHandsToSimulate = 0;
         while (handsDealt < numHandsToSimulate)
         {
             if ( myShoe.countCardsInShoe() < 78 ) 
@@ -235,53 +239,53 @@ public class Simulator
         }
         Instant end = Instant.now();
         Duration elapsed = Duration.between(start, end);
-        System.out.println("this program took " + elapsed.toMinutes() + " minutes");
+        //System.out.println("this program took " + elapsed.toMinutes() + " minutes");
 
-        System.out.println();
-        System.out.println("1. total hands dealt: " + handsDealt);
-        System.out.println("2. total dealer busts: " + numDealerBusts + " or " + (100 * (double) numDealerBusts/handsDealt + "%") );
-        System.out.println("3. total redflex wins: " + numRFwins + " or " + (100 * (double) numRFwins/handsDealt) + "%");
-        System.out.println("4. total trifectas (subset of lines 2 and 3) : " + numTrifectas + " or " + (100*(double)numTrifectas/handsDealt) + "%");
-        System.out.println("5. total balanced trifectas (subset of 4) : " + numBalancedTrifectas + " or " + (100*(double)numBalancedTrifectas/handsDealt) + "%");
-        System.out.println();
+        //System.out.println();
+        //System.out.println("1. total hands dealt: " + handsDealt);
+        //System.out.println("2. total dealer busts: " + numDealerBusts + " or " + (100 * (double) numDealerBusts/handsDealt + "%") );
+        //System.out.println("3. total redflex wins: " + numRFwins + " or " + (100 * (double) numRFwins/handsDealt) + "%");
+        //System.out.println("4. total trifectas (subset of lines 2 and 3) : " + numTrifectas + " or " + (100*(double)numTrifectas/handsDealt) + "%");
+        //System.out.println("5. total balanced trifectas (subset of 4) : " + numBalancedTrifectas + " or " + (100*(double)numBalancedTrifectas/handsDealt) + "%");
+        //System.out.println();
 
-        System.out.printf("3cardBB:  %9d %9.6f%%%n", num3cardBB, 100 * (double)num3cardBB / handsDealt);
-        System.out.printf("4cardBB:  %9d %9.6f%%%n", num4cardBB, 100 * (double)num4cardBB / handsDealt);
-        System.out.printf("5cardBB:  %9d %9.6f%%%n", num5cardBB, 100 * (double)num5cardBB / handsDealt);
-        System.out.printf("6cardBB:  %9d %9.6f%%%n", num6cardBB, 100 * (double)num6cardBB / handsDealt);
-        System.out.printf("7cardBB:  %9d %9.6f%%%n", num7cardBB, 100 * (double)num7cardBB / handsDealt);
-        System.out.printf("8cardBB:  %9d %9.6f%%%n", num8cardBB, 100 * (double)num8cardBB / handsDealt);
-        System.out.printf("9cardBB:  %9d %9.6f%%%n", num9cardBB, 100 * (double)num9cardBB / handsDealt);
-        System.out.printf("10cardBB: %9d %9.6f%%%n", num10cardBB, 100 * (double)num10cardBB / handsDealt);
-        System.out.printf("11cardBB: %9d %9.6f%%%n", num11cardBB, 100 * (double)num11cardBB / handsDealt);
-        System.out.printf("12cardBB: %9d %9.6f%%%n", num12cardBB, 100 * (double)num12cardBB / handsDealt);
-        System.out.printf("13cardBB: %9d %9.6f%%%n", num13cardBB, 100 * (double)num13cardBB / handsDealt);
-        System.out.println();
-        System.out.printf("2cardRF:  %9d %9.6f%%%n", num2cardRF, 100 * (double)num2cardRF / handsDealt);
-        System.out.printf("3cardRF:  %9d %9.6f%%%n", num3cardRF, 100 * (double)num3cardRF / handsDealt);
-        System.out.printf("4cardRF:  %9d %9.6f%%%n", num4cardRF, 100 * (double)num4cardRF / handsDealt);
-        System.out.printf("5cardRF:  %9d %9.6f%%%n", num5cardRF, 100 * (double)num5cardRF / handsDealt);
-        System.out.printf("6cardRF:  %9d %9.6f%%%n", num6cardRF, 100 * (double)num6cardRF / handsDealt);
-        System.out.printf("7cardRF:  %9d %9.6f%%%n", num7cardRF, 100 * (double)num7cardRF / handsDealt);
-        System.out.printf("8cardRF:  %9d %9.6f%%%n", num8cardRF, 100 * (double)num8cardRF / handsDealt);
-        System.out.printf("9cardRF:  %9d %9.6f%%%n", num9cardRF, 100 * (double)num9cardRF / handsDealt);
-        System.out.printf("10cardRF: %9d %9.6f%%%n", num10cardRF, 100 * (double)num10cardRF / handsDealt);
-        System.out.printf("11cardRF: %9d %9.6f%%%n", num11cardRF, 100 * (double)num11cardRF / handsDealt);
-        System.out.printf("12cardRF: %9d %9.6f%%%n", num12cardRF, 100 * (double)num12cardRF / handsDealt);
-        System.out.printf("13cardRF: %9d %9.6f%%%n", num13cardRF, 100 * (double)num13cardRF / handsDealt);
+        //System.out.printf("3cardBB:  %9d %9.6f%%%n", num3cardBB, 100 * (double)num3cardBB / handsDealt);
+        //System.out.printf("4cardBB:  %9d %9.6f%%%n", num4cardBB, 100 * (double)num4cardBB / handsDealt);
+        //System.out.printf("5cardBB:  %9d %9.6f%%%n", num5cardBB, 100 * (double)num5cardBB / handsDealt);
+        //System.out.printf("6cardBB:  %9d %9.6f%%%n", num6cardBB, 100 * (double)num6cardBB / handsDealt);
+        //System.out.printf("7cardBB:  %9d %9.6f%%%n", num7cardBB, 100 * (double)num7cardBB / handsDealt);
+        //System.out.printf("8cardBB:  %9d %9.6f%%%n", num8cardBB, 100 * (double)num8cardBB / handsDealt);
+        //System.out.printf("9cardBB:  %9d %9.6f%%%n", num9cardBB, 100 * (double)num9cardBB / handsDealt);
+        //System.out.printf("10cardBB: %9d %9.6f%%%n", num10cardBB, 100 * (double)num10cardBB / handsDealt);
+        //System.out.printf("11cardBB: %9d %9.6f%%%n", num11cardBB, 100 * (double)num11cardBB / handsDealt);
+        //System.out.printf("12cardBB: %9d %9.6f%%%n", num12cardBB, 100 * (double)num12cardBB / handsDealt);
+        //System.out.printf("13cardBB: %9d %9.6f%%%n", num13cardBB, 100 * (double)num13cardBB / handsDealt);
+        //System.out.println();
+        //System.out.printf("2cardRF:  %9d %9.6f%%%n", num2cardRF, 100 * (double)num2cardRF / handsDealt);
+        //System.out.printf("3cardRF:  %9d %9.6f%%%n", num3cardRF, 100 * (double)num3cardRF / handsDealt);
+        //System.out.printf("4cardRF:  %9d %9.6f%%%n", num4cardRF, 100 * (double)num4cardRF / handsDealt);
+        //System.out.printf("5cardRF:  %9d %9.6f%%%n", num5cardRF, 100 * (double)num5cardRF / handsDealt);
+        //System.out.printf("6cardRF:  %9d %9.6f%%%n", num6cardRF, 100 * (double)num6cardRF / handsDealt);
+        //System.out.printf("7cardRF:  %9d %9.6f%%%n", num7cardRF, 100 * (double)num7cardRF / handsDealt);
+        //System.out.printf("8cardRF:  %9d %9.6f%%%n", num8cardRF, 100 * (double)num8cardRF / handsDealt);
+        //System.out.printf("9cardRF:  %9d %9.6f%%%n", num9cardRF, 100 * (double)num9cardRF / handsDealt);
+        //System.out.printf("10cardRF: %9d %9.6f%%%n", num10cardRF, 100 * (double)num10cardRF / handsDealt);
+        //System.out.printf("11cardRF: %9d %9.6f%%%n", num11cardRF, 100 * (double)num11cardRF / handsDealt);
+        //System.out.printf("12cardRF: %9d %9.6f%%%n", num12cardRF, 100 * (double)num12cardRF / handsDealt);
+        //System.out.printf("13cardRF: %9d %9.6f%%%n", num13cardRF, 100 * (double)num13cardRF / handsDealt);
 
-        System.out.println();
-        System.out.printf("balancedTrifecta3:  %9d %9.6f%%%n", balancedTrifecta3, 100 * (double)balancedTrifecta3 / handsDealt);
-        System.out.printf("balancedTrifecta4:  %9d %9.6f%%%n", balancedTrifecta4, 100 * (double)balancedTrifecta4/ handsDealt);
-        System.out.printf("balancedTrifecta5:  %9d %9.6f%%%n", balancedTrifecta5, 100 * (double)balancedTrifecta5/ handsDealt);
-        System.out.printf("balancedTrifecta6:  %9d %9.6f%%%n", balancedTrifecta6, 100 * (double)balancedTrifecta6/ handsDealt);
-        System.out.printf("balancedTrifecta7:  %9d %9.6f%%%n", balancedTrifecta7, 100 * (double)balancedTrifecta7/ handsDealt);
-        System.out.printf("balancedTrifecta8:  %9d %9.6f%%%n", balancedTrifecta8, 100 * (double)balancedTrifecta8/ handsDealt);
-        System.out.printf("balancedTrifecta9:  %9d %9.6f%%%n", balancedTrifecta9, 100 * (double)balancedTrifecta9/ handsDealt);
-        System.out.printf("balancedTrifecta10: %9d %9.6f%%%n", balancedTrifecta10, 100 * (double)balancedTrifecta10/ handsDealt);
-        System.out.printf("balancedTrifecta11: %9d %9.6f%%%n", balancedTrifecta11, 100 * (double)balancedTrifecta11/ handsDealt);
-        System.out.printf("balancedTrifecta12: %9d %9.6f%%%n", balancedTrifecta12, 100 * (double)balancedTrifecta12 / handsDealt);
-        System.out.printf("balancedTrifecta13: %9d %9.6f%%%n", balancedTrifecta13, 100 * (double)balancedTrifecta13/ handsDealt);
+        //System.out.println();
+        //System.out.printf("balancedTrifecta3:  %9d %9.6f%%%n", balancedTrifecta3, 100 * (double)balancedTrifecta3 / handsDealt);
+        //System.out.printf("balancedTrifecta4:  %9d %9.6f%%%n", balancedTrifecta4, 100 * (double)balancedTrifecta4/ handsDealt);
+        //System.out.printf("balancedTrifecta5:  %9d %9.6f%%%n", balancedTrifecta5, 100 * (double)balancedTrifecta5/ handsDealt);
+        //System.out.printf("balancedTrifecta6:  %9d %9.6f%%%n", balancedTrifecta6, 100 * (double)balancedTrifecta6/ handsDealt);
+        //System.out.printf("balancedTrifecta7:  %9d %9.6f%%%n", balancedTrifecta7, 100 * (double)balancedTrifecta7/ handsDealt);
+        //System.out.printf("balancedTrifecta8:  %9d %9.6f%%%n", balancedTrifecta8, 100 * (double)balancedTrifecta8/ handsDealt);
+        //System.out.printf("balancedTrifecta9:  %9d %9.6f%%%n", balancedTrifecta9, 100 * (double)balancedTrifecta9/ handsDealt);
+        //System.out.printf("balancedTrifecta10: %9d %9.6f%%%n", balancedTrifecta10, 100 * (double)balancedTrifecta10/ handsDealt);
+        //System.out.printf("balancedTrifecta11: %9d %9.6f%%%n", balancedTrifecta11, 100 * (double)balancedTrifecta11/ handsDealt);
+        //System.out.printf("balancedTrifecta12: %9d %9.6f%%%n", balancedTrifecta12, 100 * (double)balancedTrifecta12 / handsDealt);
+        //System.out.printf("balancedTrifecta13: %9d %9.6f%%%n", balancedTrifecta13, 100 * (double)balancedTrifecta13/ handsDealt);
 
     }
 

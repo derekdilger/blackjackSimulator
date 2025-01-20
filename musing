@@ -1,6 +1,6 @@
 Before simulating the mainline, i should be able to manually play the mainline...
 JUST THE MAINLINE:
-1. The players place their bets first.
+1. The players place their bets first. //unnecessary to program
 2. The dealer deals two cards to the players and himself; one of his own is face down
 3. If the face-up card is a face or ace, the dealer checks if he has a blackjack
 4. If he has a blackjack, all bets are collected before further action (hits/bets), except if a player also has a blackjack.

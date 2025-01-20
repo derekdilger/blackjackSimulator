@@ -30,13 +30,18 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.1.0	/213950a4c/
 !_TAG_ROLE_DESCRIPTION!Java!package	imported	/imported package/
+BOLD	com/derekdilger/blackjacksim/Round.java	/^    final String BOLD = "\\033[1m";$/;"	f	class:Round
 Card	com/derekdilger/blackjacksim/Card.java	/^    public Card(String instanceRank, String instanceSuit) {$/;"	m	class:Card
 Card	com/derekdilger/blackjacksim/Card.java	/^public class Card {$/;"	c
 Deck	com/derekdilger/blackjacksim/Deck.java	/^    public Deck(boolean isShuffled) { \/\/constructor under construction$/;"	m	class:Deck
 Deck	com/derekdilger/blackjacksim/Deck.java	/^    public Deck(int deckID) {$/;"	m	class:Deck
 Deck	com/derekdilger/blackjacksim/Deck.java	/^public class Deck {$/;"	c
 Hand	com/derekdilger/blackjacksim/Hand.java	/^    public Hand(Card cardArg, boolean isDealersHand) {$/;"	m	class:Hand
+Hand	com/derekdilger/blackjacksim/Hand.java	/^    public Hand(boolean isDealersHand) {$/;"	m	class:Hand
 Hand	com/derekdilger/blackjacksim/Hand.java	/^public class Hand $/;"	c
+RESET	com/derekdilger/blackjacksim/Round.java	/^    final String RESET = "\\033[0m";$/;"	f	class:Round
+Round	com/derekdilger/blackjacksim/Round.java	/^    public Round(Shoe shoeArg) { \/\/constructor$/;"	m	class:Round
+Round	com/derekdilger/blackjacksim/Round.java	/^public class Round {$/;"	c
 Shoe	com/derekdilger/blackjacksim/Shoe.java	/^    public Shoe(int numDecksInShoe) $/;"	m	class:Shoe
 Shoe	com/derekdilger/blackjacksim/Shoe.java	/^public class Shoe $/;"	c
 Simulator	com/derekdilger/blackjacksim/Simulator.java	/^public class Simulator$/;"	c
@@ -45,10 +50,15 @@ THE_NUM_DECKS	com/derekdilger/blackjacksim/Shoe.java	/^    private int THE_NUM_D
 Tester	com/derekdilger/blackjacksim/retiredFiles/Tester.java	/^public class Tester$/;"	c
 Tester2	com/derekdilger/blackjacksim/Tester2.java	/^public class Tester2 {$/;"	c
 UID	com/derekdilger/blackjacksim/Card.java	/^    private int UID;$/;"	f	class:Card	file:
+actuateDesire_manual	com/derekdilger/blackjacksim/Round.java	/^    public void actuateDesire_manual()$/;"	m	class:Round
 addCard	com/derekdilger/blackjacksim/Hand.java	/^    public void addCard(Card cardToAdd) {$/;"	m	class:Hand
+arrOfPlayersHands	com/derekdilger/blackjacksim/Round.java	/^    Hand[] arrOfPlayersHands = new Hand[4];$/;"	f	class:Round
+checkIfDealerHasBlackjack	com/derekdilger/blackjacksim/Round.java	/^    public boolean checkIfDealerHasBlackjack() { \/\/for help within Round; ONLY CALL WHEN DEALE/;"	m	class:Round
+checkIfPlayerHasBlackjack	com/derekdilger/blackjacksim/Round.java	/^    public boolean checkIfPlayerHasBlackjack() {$/;"	m	class:Round
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Card.java	/^package com.derekdilger.blackjacksim;$/;"	p
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Deck.java	/^package com.derekdilger.blackjacksim;$/;"	p
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Hand.java	/^package com.derekdilger.blackjacksim;$/;"	p
+com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Round.java	/^package com.derekdilger.blackjacksim;$/;"	p
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Shoe.java	/^package com.derekdilger.blackjacksim;$/;"	p
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Simulator.java	/^package com.derekdilger.blackjacksim;$/;"	p
 com.derekdilger.blackjacksim	com/derekdilger/blackjacksim/Tester2.java	/^package com.derekdilger.blackjacksim;$/;"	p
@@ -59,8 +69,14 @@ computeRFcardNum	com/derekdilger/blackjacksim/Hand.java	/^    public int compute
 containsAnAce	com/derekdilger/blackjacksim/Hand.java	/^    public boolean containsAnAce() {$/;"	m	class:Hand
 countCardsInShoe	com/derekdilger/blackjacksim/Shoe.java	/^    public int countCardsInShoe() {$/;"	m	class:Shoe
 countNumRedAnyOrder	com/derekdilger/blackjacksim/Hand.java	/^    public int countNumRedAnyOrder() {$/;"	m	class:Hand
-decideIfDealerMustHit	com/derekdilger/blackjacksim/Hand.java	/^    boolean decideIfDealerMustHit() $/;"	m	class:Hand
+dealerGotBlackjack	com/derekdilger/blackjacksim/Round.java	/^    boolean dealerGotBlackjack;$/;"	f	class:Round
+dealerHand	com/derekdilger/blackjacksim/Round.java	/^    Hand dealerHand;$/;"	f	class:Round
+dealersFaceUpCard	com/derekdilger/blackjacksim/Round.java	/^    Card dealersFaceUpCard; \/\/redundant object but easier to think about$/;"	f	class:Round
+decideIfDealerMustHit	com/derekdilger/blackjacksim/Hand.java	/^    boolean decideIfDealerMustHit() {$/;"	m	class:Hand
 deckID	com/derekdilger/blackjacksim/Card.java	/^    private int deckID;$/;"	f	class:Card	file:
+determineIfBusted	com/derekdilger/blackjacksim/Hand.java	/^    public boolean determineIfBusted() {$/;"	m	class:Hand
+determineIfRoundShouldContinue	com/derekdilger/blackjacksim/Round.java	/^    public void determineIfRoundShouldContinue() {$/;"	m	class:Round
+doubleDown	com/derekdilger/blackjacksim/Round.java	/^    public void doubleDown()$/;"	m	class:Round
 drawCard	com/derekdilger/blackjacksim/Shoe.java	/^    public Card drawCard() \/\/draws & destroys card at top of shoe, as in a real shoe$/;"	m	class:Shoe
 fillWithCards	com/derekdilger/blackjacksim/Shoe.java	/^    public void fillWithCards() $/;"	m	class:Shoe
 fisherYatesShuffle	com/derekdilger/blackjacksim/Shoe.java	/^    public void fisherYatesShuffle(SecureRandom randArg) $/;"	m	class:Shoe
@@ -78,25 +94,55 @@ getRandomIntBetweenZeroAnd312ExclusivePRNG	com/derekdilger/blackjacksim/Shoe.jav
 getRandomIntBetweenZeroAndHighExclusiveLINUXrandom	com/derekdilger/blackjacksim/Shoe.java	/^    public int getRandomIntBetweenZeroAndHighExclusiveLINUXrandom(BigInteger high) $/;"	m	class:Shoe
 getRank	com/derekdilger/blackjacksim/Card.java	/^    public String getRank() {$/;"	m	class:Card
 getSuit	com/derekdilger/blackjacksim/Card.java	/^    public String getSuit() {$/;"	m	class:Card
-isDealerHand	com/derekdilger/blackjacksim/Hand.java	/^    private boolean isDealerHand = false;$/;"	f	class:Hand	file:
-isHard	com/derekdilger/blackjacksim/Hand.java	/^    public boolean isHard() $/;"	m	class:Hand
+hasBusted	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasBusted = false;$/;"	f	class:Hand
+hasDoubled	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasDoubled = false;$/;"	f	class:Hand
+hasFinished	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasFinished = false; \/\/also i'm not building some tall tower of abstraction/;"	f	class:Hand
+hasStarted	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasStarted = false;  \/\/but it prevents many function usages which speeds th/;"	f	class:Hand
+hasStayed	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasStayed = false;$/;"	f	class:Hand
+hasSurrendered	com/derekdilger/blackjacksim/Hand.java	/^    public boolean hasSurrendered = false;$/;"	f	class:Hand
+hit	com/derekdilger/blackjacksim/Round.java	/^    public void hit()$/;"	m	class:Round
+indexOfActn	com/derekdilger/blackjacksim/Round.java	/^    int indexOfActn;$/;"	f	class:Round
+init	com/derekdilger/blackjacksim/Round.java	/^    public void init() {$/;"	m	class:Round
+inquireDesire_manual	com/derekdilger/blackjacksim/Round.java	/^    public void inquireDesire_manual() {$/;"	m	class:Round
+isAPair	com/derekdilger/blackjacksim/Hand.java	/^    public boolean isAPair() {$/;"	m	class:Hand
+isDealerHand	com/derekdilger/blackjacksim/Hand.java	/^    public boolean isDealerHand = false; \/\/i realize making these bools public kinda violates /;"	f	class:Hand
+isDealerHand	com/derekdilger/blackjacksim/Hand.java	/^    public boolean isDealerHand() {$/;"	m	class:Hand
+isHard	com/derekdilger/blackjacksim/Hand.java	/^    public boolean isHard() {$/;"	m	class:Hand
 lowestEmptyIndex	com/derekdilger/blackjacksim/Shoe.java	/^    private int lowestEmptyIndex; \/\/useful when filling the deck$/;"	f	class:Shoe	file:
 lowestFilledIndex	com/derekdilger/blackjacksim/Shoe.java	/^    private int lowestFilledIndex; \/\/useful when we need to draw a card$/;"	f	class:Shoe	file:
-main	com/derekdilger/blackjacksim/Simulator.java	/^    public static void main(String [] args)$/;"	m	class:Simulator
+main	com/derekdilger/blackjacksim/Simulator.java	/^    public static void main(String[] args)$/;"	m	class:Simulator
 main	com/derekdilger/blackjacksim/Tester2.java	/^    public static void main(String[] args) {$/;"	m	class:Tester2
 main	com/derekdilger/blackjacksim/retiredFiles/Tester.java	/^    public static void main(String [] args)$/;"	m	class:Tester
+numPlayerHands	com/derekdilger/blackjacksim/Round.java	/^    int numPlayerHands;$/;"	f	class:Round
+numRounds	com/derekdilger/blackjacksim/Round.java	/^    static int numRounds;$/;"	f	class:Round
+play	com/derekdilger/blackjacksim/Round.java	/^    public void play() {$/;"	m	class:Round
+playerGotBlackjack	com/derekdilger/blackjacksim/Round.java	/^    boolean playerGotBlackjack;$/;"	f	class:Round
+playerHand	com/derekdilger/blackjacksim/Round.java	/^    Hand playerHand;$/;"	f	class:Round
+printBoardState	com/derekdilger/blackjacksim/Round.java	/^    public void printBoardState() {$/;"	m	class:Round
 printCard	com/derekdilger/blackjacksim/Card.java	/^    public void printCard() {$/;"	m	class:Card
 printDeck	com/derekdilger/blackjacksim/Deck.java	/^    public void printDeck() {$/;"	m	class:Deck
 printHand	com/derekdilger/blackjacksim/Hand.java	/^    public void printHand() { $/;"	m	class:Hand
 rank	com/derekdilger/blackjacksim/Card.java	/^    private String rank; \/\/ranks are A K Q J T 9 8 7 6 5 4 3 2 $/;"	f	class:Card	file:
-rankMap	com/derekdilger/blackjacksim/Hand.java	/^    private HashMap<String, Integer> rankMap = new HashMap<String, Integer>();$/;"	f	class:Hand	file:
+rankMap	com/derekdilger/blackjacksim/Hand.java	/^    private static HashMap<String, Integer> rankMap = new HashMap<String, Integer>();$/;"	f	class:Hand	file:
 ranksArr	com/derekdilger/blackjacksim/Shoe.java	/^    private static String[] ranksArr = {"A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", /;"	f	class:Shoe	file:
+resetDesires	com/derekdilger/blackjacksim/Hand.java	/^    public void resetDesires() {$/;"	m	class:Hand
+resetDesires	com/derekdilger/blackjacksim/Round.java	/^    public void resetDesires() {$/;"	m	class:Round
+returnDesire	com/derekdilger/blackjacksim/Hand.java	/^    public String returnDesire() {$/;"	m	class:Hand
 setCardAt	com/derekdilger/blackjacksim/Shoe.java	/^    public void setCardAt(int indexOfCard, Card cardToInsert) $/;"	m	class:Shoe
 setCardAt	com/derekdilger/blackjacksim/Shoe.java	/^    public void setCardAt(int indexOfCard, String rankAtHand, String suitAtHand) $/;"	m	class:Shoe
+shoeForRound	com/derekdilger/blackjacksim/Round.java	/^    Shoe shoeForRound;$/;"	f	class:Round
 shuffle	com/derekdilger/blackjacksim/Shoe.java	/^    public void shuffle() $/;"	m	class:Shoe
+split	com/derekdilger/blackjacksim/Round.java	/^    public void split() {$/;"	m	class:Round
+stay	com/derekdilger/blackjacksim/Round.java	/^    public void stay() {$/;"	m	class:Round
 suit	com/derekdilger/blackjacksim/Card.java	/^    private String suit; \/\/suits are S H D C or  ♠️  ♥️  ♦️  ♣️  NO INPUT SANI/;"	f	class:Card	file:
 suitsArr	com/derekdilger/blackjacksim/Shoe.java	/^    private static String[] suitsArr = {"♣️", "♠️", "♦️", "♥️"};$/;"	f	class:Shoe	file:
+surrender	com/derekdilger/blackjacksim/Round.java	/^    public void surrender() {$/;"	m	class:Round
 swapCardsAtIndices	com/derekdilger/blackjacksim/Shoe.java	/^    public void swapCardsAtIndices(int indexOfCard1, int indexOfCard2) $/;"	m	class:Shoe
 theDeck	com/derekdilger/blackjacksim/Deck.java	/^    private Card[] theDeck = new Card[52];$/;"	f	class:Deck	file:
 theHand	com/derekdilger/blackjacksim/Hand.java	/^    private ArrayList<Card> theHand = new ArrayList<Card>(0); $/;"	f	class:Hand	file:
 theShoe	com/derekdilger/blackjacksim/Shoe.java	/^    private Card[] theShoe = new Card[THE_NUM_DECKS * THE_NUM_CARDS_IN_A_DECK];$/;"	f	class:Shoe	file:
+wantsToDouble	com/derekdilger/blackjacksim/Hand.java	/^    public boolean wantsToDouble = false;$/;"	f	class:Hand
+wantsToHit	com/derekdilger/blackjacksim/Hand.java	/^    public boolean wantsToHit = false;$/;"	f	class:Hand
+wantsToSplit	com/derekdilger/blackjacksim/Hand.java	/^    public boolean wantsToSplit = false;$/;"	f	class:Hand
+wantsToStay	com/derekdilger/blackjacksim/Hand.java	/^    public boolean wantsToStay = false;$/;"	f	class:Hand
+wantsToSurrender	com/derekdilger/blackjacksim/Hand.java	/^    public boolean wantsToSurrender = false;$/;"	f	class:Hand
