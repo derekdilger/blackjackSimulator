@@ -15,14 +15,16 @@ num_dealer_cards:   3   4   5   6   7   8
 payout_odds     :   2   2   4   12  100 250
 
 
+
+
 Here's the raw simulation result:
 
 this program took 31056 seconds
-1. total hands dealt: 44000000000
-2. total dealer busts: 12572029805 or 28.572795011363635%
-3. total redflex wins: 10964578517 or 24.919496629545456% (theoretical value 24.92% exactly)
-4. total trifectas (subset of lines 2 and 3) : 3134195639 or 7.123171906818182%
-5. total balanced trifectas (subset of 4) : 1213273854 or 2.7574405772727273%
+total hands dealt: 44000000000
+total dealer busts: 12572029805 or 28.572795011363635%
+total redflex wins: 10964578517 or 24.919496629545456% (theoretical value 24.92% exactly)
+total trifectas (subset of lines 2 and 3) : 3134195639 or 7.123171906818182%
+total balanced trifectas (subset of 4) : 1213273854 or 2.7574405772727273%
 
 3cardBB:  7604318844 17.282543%
 4cardBB:  3937468217  8.948791%
