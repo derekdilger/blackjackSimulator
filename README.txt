@@ -1,9 +1,9 @@
 This repo is from scratch by Derek Dilger. It simulates blackjack side bets at Capital Casino to find their expected value.
 
-Q: What is the expected value of the Buster Bet?
+Q: What is the expected value of the Red Flex Bet?
 A: For every $100 wagered, $95.346 are returned to the player.
 
-Q: What is the expected value of the Red Flex Bet?
+Q: What is the expected value of the Buster Bet?
 A: For every $100 wagered, $94.623 are returned to the player.
 
 Red flex (RF) payout schedule: 
