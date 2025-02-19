@@ -64,4 +64,4 @@ balancedTrifecta12:         0  0.000000%
 balancedTrifecta13:         0  0.000000%
 
 
-p.s. there are 70,561 possible dealer hands, disregarding suits, only regarding numbers
+p.s. there are 70,561 possible dealer hands, disregarding suits, only regarding numbers, if the dealer must hit on soft 17.
