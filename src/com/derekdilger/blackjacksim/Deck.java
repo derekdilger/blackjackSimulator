@@ -3,9 +3,6 @@ package com.derekdilger.blackjacksim;
 public class Deck {
     private Card[] theDeck = new Card[52];
     
-    public Deck(boolean isShuffled) { //constructor under construction
-    }
-
     public Deck(int deckID) {
         Card[] theDeck = new Card[52];
         
@@ -67,7 +64,7 @@ public class Deck {
 
     public void printDeck() {
         for (Card cardAtHand : theDeck) {
-            System.out.println(cardAtHand.getRank() + cardAtHand.getSuit() );
+            System.out.println(cardAtHand.getCardAsString());
         }
     }
 

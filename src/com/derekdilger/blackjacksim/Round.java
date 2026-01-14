@@ -105,8 +105,7 @@ public class Round {
         }
     }
 
-    public void actuateDesire_manual()
-    {
+    public void actuateDesire_manual() {
         String desireAtHand = playerHand.returnDesire();
         System.out.println("desire is " + desireAtHand);
         switch (desireAtHand) {
@@ -137,8 +136,7 @@ public class Round {
         playerHand.wantsToSplit = false;
     }
 
-    public void hit()
-    {
+    public void hit() {
         //can't have yet stayed, doubled, busted, surrendered, or otherwise played to completion
         if (!playerHand.hasDoubled && !playerHand.hasFinished && !playerHand.hasSurrendered && !playerHand.hasBusted && !playerHand.hasStayed) 
         {
@@ -154,8 +152,7 @@ public class Round {
         }
     }
 
-    public void doubleDown()
-    {
+    public void doubleDown() {
         if (!playerHand.hasDoubled && !playerHand.hasFinished && !playerHand.hasSurrendered && !playerHand.hasBusted && !playerHand.hasStayed) 
         {
             playerHand.hasDoubled = true;
@@ -193,13 +190,13 @@ public class Round {
         if (!playerHand.hasDoubled && !playerHand.hasFinished && !playerHand.hasSurrendered && !playerHand.hasBusted && !playerHand.hasStayed && playerHand.isAPair()) {
         }
     }
+
     public void printBoardState() {
         System.out.println("dealer:       " + dealerHand.getCardAtIndex(0).getCardAsString() + "  ??");
         System.out.println();
         System.out.println();
         System.out.println("player:" + BOLD + playerHand.computeHandValue() + RESET + "   " + playerHand.getHandAsString());
     }
-
 
     public void determineIfRoundShouldContinue() {
         if (!playerHand.hasFinished) {

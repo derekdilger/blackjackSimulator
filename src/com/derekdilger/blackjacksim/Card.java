@@ -26,9 +26,4 @@ public class Card {
         return toReturn;
     }
 
-    public void printCard() {
-
-        System.out.println();
-    }
-
 }

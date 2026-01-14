@@ -2,25 +2,8 @@ package com.derekdilger.blackjacksim;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.HashMap;
-public class Hand 
+public class PokerHand
 {
-    //hand metadata
-    public boolean isDealerHand = false; //i realize making these bools public kinda violates OOP a bit.
-    //turn taking states
-    public boolean hasStarted = false;  //but it prevents many function usages which speeds things up
-    public boolean hasFinished = false; //also i'm not building some tall tower of abstraction. 
-    //result states                     
-    public boolean hasDoubled = false;
-    public boolean hasBusted = false;
-    public boolean hasSurrendered = false;
-    public boolean hasStayed = false;
-    //desire states
-    public boolean wantsToHit = false;
-    public boolean wantsToStay = false;
-    public boolean wantsToDouble = false;
-    public boolean wantsToSurrender = false;
-    public boolean wantsToSplit = false;
-
     private ArrayList<Card> theHand = new ArrayList<Card>(0); 
     private static HashMap<String, Integer> rankMap = new HashMap<String, Integer>();
     static {
@@ -39,14 +22,14 @@ public class Hand
         rankMap.put("2", 2);
     }
 
-    public Hand(Card cardArg, boolean isDealersHand) {
+    public BlackJackHand(Card cardArg, boolean isDealersHand) {
         if (isDealersHand) {
             this.isDealerHand = true;
         }
         theHand.add(cardArg);
     }
 
-    public Hand(boolean isDealersHand) {
+    public BlackJackHand(boolean isDealersHand) {
         if (isDealersHand) {
             this.isDealerHand = true;
         }
@@ -280,6 +263,6 @@ public class Hand
             desire = "p";
             return desire;
         }
-            return desire="you reached the bottom of Hand's returnDesire()";
+            return desire="you reached the bottom of BlackJackHand's returnDesire()";
     }
 }
